@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "e60e865c-9597-46a3-a720-1a2244c68e2d",
+		"name": "Entregable 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "creditos por productos en intervalo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dvivasva-cloud-credit-aks.azuremicroservices.io/credit/report-between?dateInit=2022-02-03&dateEnd=2022-02-23&productName=Préstamo Empresa",
+					"protocol": "https",
+					"host": [
+						"dvivasva-cloud-credit-aks",
+						"azuremicroservices",
+						"io"
+					],
+					"path": [
+						"credit",
+						"report-between"
+					],
+					"query": [
+						{
+							"key": "dateInit",
+							"value": "2022-02-03"
+						},
+						{
+							"key": "dateEnd",
+							"value": "2022-02-23"
+						},
+						{
+							"key": "productName",
+							"value": "Préstamo Empresa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ultimo 10 mivimientos por tarjeta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dvivasva-cloud-transfer-aks.azuremicroservices.io/transfer/report-movement?numberCard=4214-1001-xx",
+					"protocol": "https",
+					"host": [
+						"dvivasva-cloud-transfer-aks",
+						"azuremicroservices",
+						"io"
+					],
+					"path": [
+						"transfer",
+						"report-movement"
+					],
+					"query": [
+						{
+							"key": "numberCard",
+							"value": "4214-1001-xx"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pagos a tercero",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"TRA-001\",\r\n\"cardNumber\":\"4214-1001-xx\",\r\n\"idAccountOrigin\":\"\",\r\n\"idAccountDestination\":\"CRE-002\",\r\n\"amount\":80,\r\n\"commission\":0,\r\n\"description\":\"Transferencia diferida\", \r\n\"date\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dvivasva-cloud-transfer-aks.azuremicroservices.io/transfer",
+					"protocol": "https",
+					"host": [
+						"dvivasva-cloud-transfer-aks",
+						"azuremicroservices",
+						"io"
+					],
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposito ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"TRA-002\",\r\n\"cardNumber\":\"4214-1001-xx\",\r\n\"idAccountOrigin\":\"\",\r\n\"idAccountDestination\":\"ACC-002\",\r\n\"amount\":100,\r\n\"commission\":0,\r\n\"description\":\"Transferencia diferida\", \r\n\"date\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dvivasva-cloud-transfer-aks.azuremicroservices.io/transfer",
+					"protocol": "https",
+					"host": [
+						"dvivasva-cloud-transfer-aks",
+						"azuremicroservices",
+						"io"
+					],
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lista de pagos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dvivasva-cloud-payment-ska.azuremicroservices.io/payment",
+					"protocol": "https",
+					"host": [
+						"dvivasva-cloud-payment-ska",
+						"azuremicroservices",
+						"io"
+					],
+					"path": [
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retiro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"TRA-003\",\r\n\"cardNumber\":\"4214-1001-xx\",\r\n\"idAccountOrigin\":\"\",\r\n\"idAccountDestination\":\"\",\r\n\"amount\":20,\r\n\"commission\":0,\r\n\"description\":\"Transferencia diferida\", \r\n\"date\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dvivasva-cloud-transfer-aks.azuremicroservices.io/transfer",
+					"protocol": "https",
+					"host": [
+						"dvivasva-cloud-transfer-aks",
+						"azuremicroservices",
+						"io"
+					],
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
